@@ -30,7 +30,7 @@
         $mail->addAddress($email);
 
         $mail->Subject = "Password Reset";
-        $base_url = "http://" . $_SERVER['HTTP_HOST'] . "/Secure-Programming/php";
+        $base_url = "http://" . $_SERVER['HTTP_HOST'] . "/Secure-Programming-completed/php";
         $url = $base_url . "/reset-driver.php?token=$token";
         $mail->Body = <<<END
 
