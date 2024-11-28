@@ -131,7 +131,6 @@
     </style>
 </head>
 <body>
-    <?php include "../layout/header_order.php" ?>
     <h1 class="info">You get the driver!</h1>
     <div id="map"></div>
 

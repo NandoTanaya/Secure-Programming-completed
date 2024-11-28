@@ -3,7 +3,7 @@
 
     $token_hash = hash("sha256", $token);
 
-    $sql = require("./database2.php");
+    $sql = require("../database/database2.php");
 
     $newsql = "SELECT * FROM users
                WHERE reset_token_hash = ?";

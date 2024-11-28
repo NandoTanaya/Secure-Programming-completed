@@ -1,4 +1,7 @@
 <?php 
+    error_reporting(E_ALL);
+    ini_set('display_errors', 1);
+
     $email = htmlspecialchars($_POST["email"]);
 
     $token = bin2hex(random_bytes(16));
@@ -27,9 +30,11 @@
         $mail->addAddress($email);
 
         $mail->Subject = "Password Reset";
+        $base_url = "http://" . $_SERVER['HTTP_HOST'] . "/Secure-Programming-completed/php";
+        $url = $base_url . "/reset.php?token=$token";
         $mail->Body = <<<END
 
-        Click <a href = "http://127.0.0.1:1234/reset.php?token=$token"> here </a> to reset your password. 
+        Click <a href = "$url"> here </a> to reset your password. 
         END;
 
         try{
@@ -45,4 +50,5 @@
     }
 
     echo "Message sent, please check your inbox.";
+    header("Location: both_login.php");
 ?>

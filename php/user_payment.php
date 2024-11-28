@@ -35,8 +35,6 @@
     <link rel="stylesheet" href="../css/user_payment.css">
 </head>
 <body>
-    <?php include "../layout/header_order.php" ?>   
-
     <!-- Payment Method -->
      <div class="container">
         <div class="main-container">
