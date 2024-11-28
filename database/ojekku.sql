@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Nov 28, 2024 at 06:02 PM
+-- Generation Time: Nov 28, 2024 at 06:23 PM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -34,19 +34,21 @@ CREATE TABLE `drivers` (
   `phone` varchar(15) DEFAULT NULL,
   `available` tinyint(1) DEFAULT 1,
   `location` point DEFAULT NULL,
-  `password` varchar(255) DEFAULT NULL
+  `password` varchar(255) DEFAULT NULL,
+  `reset_token_hash` varchar(64) DEFAULT NULL,
+  `reset_token_expires_at` datetime DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `drivers`
 --
 
-INSERT INTO `drivers` (`id`, `name`, `email`, `phone`, `available`, `location`, `password`) VALUES
-(1, 'driver', 'driver@gmail.com', NULL, 1, NULL, '$2y$10$TJFbNfvAyWxY65yUAfNuaOVQ6tTnKuBT7sSTEzlvl3eXzMa0L1b.O'),
-(2, '', 'driverku@gmail.com', NULL, 1, NULL, '$2y$10$uwRI0z6Q5JUzoTQ0fZzxgO6w9gMP.6kpCwhJ4CVSZFSvYmpu7PVDW'),
-(3, '', 'driverku2@gmail.com', NULL, 1, NULL, '$2y$10$rDwd5uORQXk678zUsMhhouUPDFileDIyFdkLyVCyPsDM2LIb1xfsC'),
-(4, 'driverku3', 'driverku3@gmail.com', NULL, 1, NULL, '$2y$10$3FULnNncjqAP7Ik/Q8XisO58CNT8D6sPzJrdtI8ePmSgFX977zl4C'),
-(5, 'driverku4', 'driverku4@gmail.com', NULL, 1, NULL, '$2y$10$mMnij7VsjMz4iAegl55cweOweeyGdGRHGYjIgJDi8Hy1GhI9RyFZS');
+INSERT INTO `drivers` (`id`, `name`, `email`, `phone`, `available`, `location`, `password`, `reset_token_hash`, `reset_token_expires_at`) VALUES
+(1, 'driver', 'driver@gmail.com', NULL, 1, NULL, '$2y$10$TJFbNfvAyWxY65yUAfNuaOVQ6tTnKuBT7sSTEzlvl3eXzMa0L1b.O', NULL, NULL),
+(2, '', 'driverku@gmail.com', NULL, 1, NULL, '$2y$10$uwRI0z6Q5JUzoTQ0fZzxgO6w9gMP.6kpCwhJ4CVSZFSvYmpu7PVDW', NULL, NULL),
+(3, '', 'driverku2@gmail.com', NULL, 1, NULL, '$2y$10$rDwd5uORQXk678zUsMhhouUPDFileDIyFdkLyVCyPsDM2LIb1xfsC', NULL, NULL),
+(4, 'driverku3', 'driverku3@gmail.com', NULL, 1, NULL, '$2y$10$3FULnNncjqAP7Ik/Q8XisO58CNT8D6sPzJrdtI8ePmSgFX977zl4C', NULL, NULL),
+(5, 'driverku4', 'driverku4@gmail.com', NULL, 1, NULL, '$2y$10$mMnij7VsjMz4iAegl55cweOweeyGdGRHGYjIgJDi8Hy1GhI9RyFZS', 'e466a04180e9f161662139907ef2d57d6641186acff329370d08fd04b7e95436', '2024-11-28 19:14:47');
 
 -- --------------------------------------------------------
 
@@ -161,7 +163,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `drivers`
 --
 ALTER TABLE `drivers`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `orders`
